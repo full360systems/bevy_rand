@@ -1,24 +1,23 @@
 #![doc = include_str!("../README.md")]
-#![deny(missing_docs)]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 #![cfg_attr(docsrs, allow(unused_attributes))]
 #![no_std]
 
 #[cfg(feature = "rand_chacha")]
-mod chacha;
+pub mod chacha;
 #[cfg(any(
     feature = "wyrand",
     feature = "rand_chacha",
     feature = "rand_pcg",
     feature = "rand_xoshiro"
 ))]
-mod newtype;
+pub mod newtype;
 #[cfg(feature = "rand_pcg")]
-mod pcg;
+pub mod pcg;
 #[cfg(feature = "wyrand")]
-mod wyrand;
+pub mod wyrand;
 #[cfg(feature = "rand_xoshiro")]
-mod xoshiro;
+pub mod xoshiro;
 
 use core::fmt::Debug;
 
